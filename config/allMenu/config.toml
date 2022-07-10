@@ -81,7 +81,7 @@ URL = "https://kubesphere.io/docs/"
     [[languages.en.menu.main]]
     parent = "Documentation"
     name = "v2.0.x"
-    URL = "https://v2-0.docs.kubesphere.io/docs/"
+    URL = "/v2.0"
     weight = 3
 
     [[languages.en.menu.main]]
