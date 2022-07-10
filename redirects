@@ -1,5 +1,5 @@
 # Redirects from what the browser requests to what we serve
 # /              /
-# /blog/my-post.php  /blog/my-post
+# /blog/my-post.php  /blog/my-post q
 # /news              /blog
 /v2.0            https://v2-0.docs.kubesphere.io/docs/
