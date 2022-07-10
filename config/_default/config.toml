@@ -299,7 +299,7 @@ name = "文档中心"
     [[languages.zh.menu.main]]
     parent = "文档中心"
     name = "v2.0"
-    URL = "https://v2-0.docs.kubesphere.io/docs/zh-CN/"
+    URL = "/v2.0"
     weight = 6
 
     [[languages.zh.menu.main]]
