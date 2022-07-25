@@ -25,7 +25,7 @@ For demonstration and testing purposes, here are some example artifacts you can 
 ## Prerequisites
 
 - You have enabled the [KubeSphere DevOps System](../../../pluggable-components/devops/).
-- You need to create a [Docker Hub](http://www.dockerhub.com/) account. GitLab and Harbor are also supported.
+- You need to create a [Docker Hub](https://www.dockerhub.com/) account. GitLab and Harbor are also supported.
 - You need to create a workspace, a project and a user (`project-regular`). The user must be invited to the project with the role of `operator`. For more information, see [Create Workspaces, Projects, Users and Roles](../../../quick-start/create-workspace-and-project/).
 - Set a CI dedicated node for building images. This is not mandatory but recommended for the development and production environment as it caches dependencies and reduces build time. For more information, see [Set a CI Node for Dependency Caching](../../../devops-user-guide/how-to-use/devops-settings/set-ci-node/).
 
@@ -77,7 +77,7 @@ You must create a Docker Hub Secret so that the Docker image created through B2I
 
 1. Wait for a while and you can see the status of the image builder has reached **Successful**.
 
-2. Click this image to go to its details page. Under **Job Records**, click <img src="/images/docs/v3.3/project-user-guide/image-builder/b2i-publish-artifact-to-kubernetes/down-arrow.png" width="20px" /> on the right of a record to see building logs. You can see `Build completed successfully` at the end of the log if everything runs normally.
+2. Click this image to go to its details page. Under **Job Records**, click <img src="/images/docs/v3.3/project-user-guide/image-builder/b2i-publish-artifact-to-kubernetes/down-arrow.png" width="20px" alt="icon" /> on the right of a record to see building logs. You can see `Build completed successfully` at the end of the log if everything runs normally.
 
 3. Go back to the **Services**, **Deployments**, and **Jobs** page, and you can see the corresponding Service, Deployment, and Job of the image have been all created successfully.
 
@@ -133,7 +133,7 @@ Make sure you have created a Secret for Docker Hub. For more information, see [C
 
 1. Wait for a while and you can see the status of the image builder has reached **Successful**.
 
-2. Click this image builder to go to its details page. Under **Job Records**, click <img src="/images/docs/v3.3/project-user-guide/image-builder/b2i-publish-artifact-to-kubernetes/down-arrow.png" width="20px" /> on the right of a record to see building logs. You can see `Build completed successfully` at the end of the log if everything runs normally.
+2. Click this image builder to go to its details page. Under **Job Records**, click <img src="/images/docs/v3.3/project-user-guide/image-builder/b2i-publish-artifact-to-kubernetes/down-arrow.png" width="20px" alt="icon" /> on the right of a record to see building logs. You can see `Build completed successfully` at the end of the log if everything runs normally.
 
 3. Go to the **Jobs** page, and you can see the corresponding Job of the image has been created successfully.
 

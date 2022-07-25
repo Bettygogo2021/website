@@ -13,7 +13,7 @@ This tutorial demonstrates how to create a pipeline through graphical editing pa
 ## Prerequisites
 
 - You need to [enable the KubeSphere DevOps System](../../../../pluggable-components/devops/).
-- You need to have a [Docker Hub](http://www.dockerhub.com/) account.
+- You need to have a [Docker Hub](https://www.dockerhub.com/) account.
 - You need to create a workspace, a DevOps project, and a user (`project-regular`). This user must be invited to the DevOps project with the `operator` role. See [Create Workspaces, Projects, Users and Roles](../../../../quick-start/create-workspace-and-project/) if they are not ready.
 - Set CI dedicated nodes to run the pipeline. For more information, see [Set CI Node for Dependency Cache](../../../../devops-user-guide/how-to-use/devops-settings/set-ci-node/).
 - Configure your email server for pipeline notifications (optional). For more information, see [Set Email Server for KubeSphere Pipelines](../../../../devops-user-guide/how-to-use/pipelines/jenkins-email/).
@@ -320,7 +320,7 @@ This stage uses SonarQube to test your code. You can skip this stage if you do n
 
    {{< notice note >}}
    
-   On the **Pipelines** page, you can click <img src="/images/docs/v3.3/common-icons/three-dots.png" width="15" /> on the right side of the pipeline and then select **Copy** to create a copy of it. If you need to concurrently run multiple pipelines that don't contain multiple branches, you can select all of these pipelines and then click **Run** to run them in a batch. 
+   On the **Pipelines** page, you can click <img src="/images/docs/v3.3/common-icons/three-dots.png" width="15" alt="icon" /> on the right side of the pipeline and then select **Copy** to create a copy of it. If you need to concurrently run multiple pipelines that don't contain multiple branches, you can select all of these pipelines and then click **Run** to run them in a batch. 
    
    {{</ notice >}}
 

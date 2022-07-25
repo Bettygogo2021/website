@@ -15,7 +15,7 @@ This tutorial demonstrates how to use S2I to import source code of a Java sample
 ## Prerequisites
 
 - You need to enable the [KubeSphere DevOps System](../../../pluggable-components/devops/) as S2I is integrated into it.
-- You need to create a [GitHub](https://github.com/) account and a [Docker Hub](http://www.dockerhub.com/) account. GitLab and Harbor are also supported. This tutorial uses a GitHub repository to provide the source code for building and pushes an image to Docker Hub.
+- You need to create a [GitHub](https://github.com/) account and a [Docker Hub](https://www.dockerhub.com/) account. GitLab and Harbor are also supported. This tutorial uses a GitHub repository to provide the source code for building and pushes an image to Docker Hub.
 - You need to create a workspace, a project and a user (`project-regular`). The user must be invited to the project with the role of `operator`. For more information, see [Create Workspaces, Projects, Users and Roles](../../../quick-start/create-workspace-and-project/).
 - Set a CI dedicated node for building images. This is not mandatory but recommended for the development and production environment as it caches dependencies and reduces build time. For more information, see [Set a CI Node for Dependency Caching](../../../devops-user-guide/how-to-use/devops-settings/set-ci-node/).
 
@@ -89,7 +89,7 @@ You do not need to create the GitHub Secret if your forked repository is open to
 
 1. Wait for a while and you can see the status of the image builder has reached **Successful**.
 
-2. Click this image builder to go to its details page. Under **Job Records**, click <img src="/images/docs/v3.3/project-user-guide/image-builder/s2i-publish-app-without-dockerfile/down-arrow.png" width="20px" /> on the right of a record to see building logs. You can see `Build completed successfully` at the end of the log if everything runs normally.
+2. Click this image builder to go to its details page. Under **Job Records**, click <img src="/images/docs/v3.3/project-user-guide/image-builder/s2i-publish-app-without-dockerfile/down-arrow.png" width="20px" alt="icon" /> on the right of a record to see building logs. You can see `Build completed successfully` at the end of the log if everything runs normally.
 
 3. Go back to the **Services**, **Deployments**, and **Jobs** page, and you can see the corresponding Service, Deployment, and Job of the image have been all created successfully.
 
