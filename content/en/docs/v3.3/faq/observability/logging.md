@@ -19,7 +19,7 @@ This page contains some of the frequently asked questions about logging.
 
 ## How to change the log store to the external Elasticsearch and shut down the internal Elasticsearch
 
-If you are using the KubeSphere internal Elasticsearch and want to change it to your external alternate, follow the steps below. If you haven't enabled the logging system, refer to [KubeSphere Logging System](../../../pluggable-components/logging/) to setup your external Elasticsearch directly.
+If you are using the KubeSphere internal Elasticsearch and want to change it to your external alternate, follow the steps below. If you haven't enabled the logging system, refer to [KubeSphere Logging System](../../../pluggable-components/logging/) to set up your external Elasticsearch directly.
 
 1. First, you need to update the KubeKey configuration. Execute the following command:
 
@@ -27,7 +27,7 @@ If you are using the KubeSphere internal Elasticsearch and want to change it to 
    kubectl edit cc -n kubesphere-system ks-installer
    ```
 
-2. Comment out `es.elasticsearchDataXXX`, `es.elasticsearchMasterXXX` and `status.logging`, and set `es.externalElasticsearchUrl` to the address of your Elasticsearch and `es.externalElasticsearchPort` to its port number. Below is an example for your reference.
+2. Comment out `es.elasticsearchDataXXX`, `es.elasticsearchMasterXXX` and `status.logging`, and set `es.externalElasticsearchHost` to the address of your Elasticsearch and `es.externalElasticsearchPort` to its port number. Below is an example for your reference.
 
    ```yaml
    apiVersion: installer.kubesphere.io/v1alpha1
@@ -39,14 +39,18 @@ If you are using the KubeSphere internal Elasticsearch and want to change it to 
    spec:
      ...
      common:
-       es:
-         # elasticsearchDataReplicas: 1
-         # elasticsearchDataVolumeSize: 20Gi
-         # elasticsearchMasterReplicas: 1
-         # elasticsearchMasterVolumeSize: 4Gi
+       es:  # Storage backend for logging, events and auditing.
+         # master:
+         #   volumeSize: 4Gi  # The volume size of Elasticsearch master nodes.
+         #   replicas: 1      # The total number of master nodes. Even numbers are not allowed.
+         #   resources: {}
+         # data:
+         #   volumeSize: 20Gi  # The volume size of Elasticsearch data nodes.
+         #   replicas: 1       # The total number of data nodes.
+         #   resources: {}
          elkPrefix: logstash
          logMaxAge: 7
-         externalElasticsearchUrl: <192.168.0.2>
+         externalElasticsearchHost: <192.168.0.2>
          externalElasticsearchPort: <9200>
      ...
    status:
@@ -88,7 +92,7 @@ Currently, KubeSphere doesn't support the integration of Elasticsearch with X-Pa
 
 Before KubeSphere v3.3.0, you can only set the retention period of logs, which is 7 days by default. In KubeSphere v3.3.0, apart from logs, you can also set the data retention period of events, auditing logs, and Istio logs.
 
-You need to update the KubeKey configuration and rerun `ks-installer`.
+Perform the following to update the KubeKey configurations.
 
 1. Execute the following command:
 
@@ -96,7 +100,7 @@ You need to update the KubeKey configuration and rerun `ks-installer`.
    kubectl edit cc -n kubesphere-system ks-installer
    ```
 
-2. In the YAML file, if you only want to change the retention period of logs, you can directly change the default value of `logMaxAge` to a desired one. If you want to set the retention period of events, auditing logs, and Istio logs, you need to add parameters `auditingMaxAge`, `eventMaxAge`, and `istioMaxAge` and set a value for them, respectively, as shown in the following example:
+2. In the YAML file, if you only want to change the retention period of logs, you can directly change the default value of `logMaxAge` to a desired one. If you want to set the retention period of events, auditing logs, and Istio logs, add parameters `auditingMaxAge`, `eventMaxAge`, and `istioMaxAge` and set a value for them, respectively, as shown in the following example:
   
 
    ```yaml
@@ -118,10 +122,27 @@ You need to update the KubeKey configuration and rerun `ks-installer`.
      ...
    ```
 
-3. Rerun `ks-installer`.
+   {{< notice note >}}
+   If you have not set the retention period of events, auditing logs, and Istio logs, the value of `logMaxAge` is used by default.
+   {{</ notice >}}
 
-   ```bash
-   kubectl rollout restart deploy -n kubesphere-system ks-installer
+3. In the YAML file, delete the `es` parameter, save the changes, and ks-installer will automatically restart to make the changes take effective.
+
+   ```yaml
+   apiVersion: installer.kubesphere.io/v1alpha1
+   kind: ClusterConfiguration
+   metadata:
+     name: ks-installer
+     namespace: kubesphere-system
+   ...
+   status:
+     alerting:
+       enabledTime: 2022-08-11T06:22:01UTC
+       status: enabled
+     ...
+     es:   # delete this line.
+       enabledTime: 2022-08-11T06:22:01UTC    # delete this line.
+       status: enabled   # delete this line.
    ```
 
 ## I cannot find logs from workloads on some nodes using Toolbox
