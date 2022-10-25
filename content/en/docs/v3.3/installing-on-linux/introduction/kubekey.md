@@ -38,7 +38,7 @@ With the configuration file in place, you execute the `./kk` command with varied
 Download KubeKey from its [GitHub Release Page](https://github.com/kubesphere/kubekey/releases) or use the following command directly.
 
 ```bash
-curl -sfL https://get-kk.kubesphere.io | VERSION=v2.2.1 sh -
+curl -sfL https://get-kk.kubesphere.io | VERSION=v2.2.2 sh -
 ```
 
 {{</ tab >}}
@@ -54,7 +54,7 @@ export KKZONE=cn
 Run the following command to download KubeKey:
 
 ```bash
-curl -sfL https://get-kk.kubesphere.io | VERSION=v2.2.1 sh -
+curl -sfL https://get-kk.kubesphere.io | VERSION=v2.2.2 sh -
 ```
 
 {{< notice note >}}
@@ -69,7 +69,7 @@ After you download KubeKey, if you transfer it to a new machine also with poor n
 
 {{< notice note >}}
 
-The commands above download the latest release (v2.2.1) of KubeKey. You can change the version number in the command to download a specific version.
+The commands above download the latest release (v2.2.2) of KubeKey. You can change the version number in the command to download a specific version.
 
 {{</ notice >}}
 
@@ -85,5 +85,5 @@ If you want to use KubeKey to install both Kubernetes and KubeSphere 3.3.0, see 
 
 - You can also run `./kk version --show-supported-k8s` to see all supported Kubernetes versions that can be installed by KubeKey.
 - The Kubernetes versions that can be installed using KubeKey are different from the Kubernetes versions supported by KubeSphere v3.3.0. If you want to [install KubeSphere 3.3.0 on an existing Kubernetes cluster](../../../installing-on-kubernetes/introduction/overview/), your Kubernetes version must be v1.19.x, v1.20.x, v1.21.x, v1.22.x, and v1.23.x (experimental support).
-- If you want to use KubeEdge, you are advised to install Kubernetes v1.22.x or earlier to prevent compatability issues.
+- If you want to use KubeEdge, you are advised to install Kubernetes v1.21.x or earlier to prevent compatability issues.
 {{</ notice >}}

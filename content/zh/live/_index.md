@@ -10,22 +10,106 @@ section1:
 
 section2:
   image: /images/live/cloudnative-live-banner.png
-  url: ./harbor0811-live/
+  url: ./curve1013-live/
 
   notice:
-    title: CONTINAERlab + KinD 秒速部署跨网络 K8s 集群
+    title: Kubernetes  多集群管理架构探索
     tag: 预告
-    time: 2022 年 08 月 18 日晚 8 点
+    time: 2022 年 10 月 20 日晚 8 点
     base: 线上
-    url: ./containerlab0818-live/
+    url: ./multicluster1020-live/
 
   over:
-    title: 云原生 Meetup 杭州站
+    title: Apache APISIX & KubeSphere 联合 Meetup
     tag: 预告
-    url: ./meetup-hangzhou-20220827/
+    url: ./apisix-kubesphere-meetup1022/
 
 section3:
   videos:
+    - title: Curve 分布式存储设计
+      link: ./curve1013-live/
+      snapshot: https://pek3b.qingstor.com/kubesphere-community/images/curve1013-live-cover.png
+      type: iframe
+      createTime: 2022.10.13
+      group: 直播回放
+
+    - title: Kubernetes 节点故障自救方案探索
+      link: ./k8s0922-live/
+      snapshot: https://pek3b.qingstor.com/kubesphere-community/images/k8s0922-live-cover.png
+      type: iframe
+      createTime: 2022.09.22
+      group: 直播回放
+
+    - title: 容器业务连续性保障的探索与实践
+      link: ./container0915-live/
+      snapshot: https://pek3b.qingstor.com/kubesphere-community/images/container0915-live-cover.png
+      type: iframe
+      createTime: 2022.09.15
+      group: 直播回放
+
+    - title: 解密云原生数仓 Databend
+      link: ./databend0908-live/
+      snapshot: https://pek3b.qingstor.com/kubesphere-community/images/databend0908-live-cover.png
+      type: iframe
+      createTime: 2022.09.08
+      group: 直播回放
+
+    - title: 10 万边缘节点！KubeEdge 大规模边缘集群性能测试实战
+      link: ./kubeedge0901-live/
+      snapshot: https://pek3b.qingstor.com/kubesphere-community/images/kubeedge0901-live-cover.png
+      type: iframe
+      createTime: 2022.09.01
+      group: 直播回放
+
+    - title: NebulaGraph 的云产品交付实践
+      link: ./hangzhou0827-nebulagragh/
+      snapshot: https://pek3b.qingstor.com/kubesphere-community/images/meetup-hangzhou-20220827-nebulagragh-cover.png
+      type: iframe
+      createTime: 2022.08.27
+      group: Meetup
+
+    - title: DevSecOps：始于工具，终于数据，谋全局而非谋一隅
+      link: ./hangzhou0827-devsecops/
+      snapshot: https://pek3b.qingstor.com/kubesphere-community/images/meetup-hangzhou-20220827-devsecops-cover.png
+      type: iframe
+      createTime: 2022.08.27
+      group: Meetup
+
+    - title: 基于 KubeEdge 的首个云原生边缘计算威胁建模及安全防护实践
+      link: ./hangzhou0827-kubeedge/
+      snapshot: https://pek3b.qingstor.com/kubesphere-community/images/meetup-hangzhou-20220827-kubeedge-cover.png
+      type: iframe
+      createTime: 2022.08.27
+      group: Meetup
+
+    - title: 基于 KubeSphere 打造一站式云原生机器学习平台
+      link: ./hangzhou0827-mlops/
+      snapshot: https://pek3b.qingstor.com/kubesphere-community/images/meetup-hangzhou-20220827-mlops-cover.png
+      type: iframe
+      createTime: 2022.08.27
+      group: Meetup
+
+    - title: Karmada 跨集群优雅故障迁移深度剖析
+      link: ./hangzhou0827-karmada/
+      snapshot: https://pek3b.qingstor.com/kubesphere-community/images/meetup-hangzhou-20220827-karmada-cover.png
+      type: iframe
+      createTime: 2022.08.27
+      group: Meetup
+
+    - title: 使用 Velero 为你的云原生应用数据保驾护航
+      link: ./hangzhou0827-velero/
+      snapshot: https://pek3b.qingstor.com/kubesphere-community/images/meetup-hangzhou-20220827-velero-cover.png
+      type: iframe
+      createTime: 2022.08.27
+      group: Meetup
+
+    - title: CONTINAERlab + KinD 秒速部署跨网络 K8s 集群
+      link: ./containerlab0818-live/
+      snapshot: https://pek3b.qingstor.com/kubesphere-community/images/containerlab0818-live-cover.png
+      type: iframe
+      createTime: 2022.08.18
+      group: 直播回放
+
     - title: 基于 Harbor 为云原生系统打造企业级高可用镜像仓库
       link: ./harbor0811-live/
       snapshot: https://pek3b.qingstor.com/kubesphere-community/images/harbor0811-live-cover.png
@@ -773,9 +857,30 @@ section4:
   noticeImg: /images/live/notice.svg
   title: Meetup 回顾
   list:
+    - year: 2022
+      meetup: 
+        - place: 杭州站（08. 27）
+          img: https://pek3b.qingstor.com/kubesphere-community/images/meetup-hangzhou-20220827-cover.png
+          meetupUrl: https://kubesphere.com.cn/live/meetup-hangzhou-20220827/
+
+        - place: 广州站（08.06）
+          img: https://pek3b.qingstor.com/kubesphere-community/images/meetup-guangzhou-cover.jpeg
+          meetupUrl: https://kubesphere.com.cn/live/meetup-guangzhou-20220806/
+
+        - place: 在线 Meetup（06.25）
+          img: https://pek3b.qingstor.com/kubesphere-community/images/pulsar-kubesphere-meetup-cover.png
+          meetupUrl: https://kubesphere.com.cn/live/pulsar-kubesphere-meetup0625/
+
+        - place: 成都站（05.14）
+          img: https://pek3b.qingstor.com/kubesphere-community/images/cloudnative-chengdu-20220514-cover.png
+          meetupUrl: https://kubesphere.com.cn/live/meetup-chengdu-20220514/
+
+        - place: 长沙站（03.12）
+          img: https://pek3b.qingstor.com/kubesphere-community/images/meetup-changsha-20220312-cover.png
+          meetupUrl: https://kubesphere.com.cn/live/meetup-changsha-20220312/
+
     - year: 2021
       meetup: 
-
         - place: 杭州站（10.23）
           img: https://pek3b.qingstor.com/kubesphere-community/images/meetup-hangzhou1023-cover.png
           meetupUrl: https://kubesphere.com.cn/live/meetup-hangzhou1023/
@@ -795,24 +900,6 @@ section4:
         - place: 上海站（05.15）
           img: https://pek3b.qingstor.com/kubesphere-community/images/meetup-shanghai-cover.png
           meetupUrl: https://kubesphere.com.cn/live/meetup-shanghai/
-
-    - year: 2022
-      meetup: 
-        - place: 广州站（08.06）
-          img: https://pek3b.qingstor.com/kubesphere-community/images/meetup-guangzhou-cover.jpeg
-          meetupUrl: https://kubesphere.com.cn/live/meetup-guangzhou-20220806/
-
-        - place: 在线 Meetup（06.25）
-          img: https://pek3b.qingstor.com/kubesphere-community/images/pulsar-kubesphere-meetup-cover.png
-          meetupUrl: https://kubesphere.com.cn/live/pulsar-kubesphere-meetup0625/
-
-        - place: 成都站（05.14）
-          img: https://pek3b.qingstor.com/kubesphere-community/images/cloudnative-chengdu-20220514-cover.png
-          meetupUrl: https://kubesphere.com.cn/live/meetup-chengdu-20220514/
-
-        - place: 长沙站（03.12）
-          img: https://pek3b.qingstor.com/kubesphere-community/images/meetup-changsha-20220312-cover.png
-          meetupUrl: https://kubesphere.com.cn/live/meetup-changsha-20220312/
 
 section5:
   title: 分享您的主题

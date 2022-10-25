@@ -11,7 +11,7 @@ weight: 3330
 {{< notice note >}}
 
 - 本教程以 Ubuntu 16.04 为例。
-- 不建议您在生产环境中使用 NFS 存储（尤其是在 Kubernetes 1.20 或以上版本），这可能会引起 `failed to obtain lock` 和 `input/output error` 等问题，从而导致 Pod `CrashLoopBackOff`。此外，部分应用不兼容 NFS，例如 [Prometheus](https://github.com/prometheus/prometheus/blob/03b354d4d9386e4b3bfbcd45da4bb58b182051a5/docs/storage.md#operational-aspects) 等。
+- NFS 与部分应用不兼容（例如 Prometheus），可能会导致容器组创建失败。如果确实需要在生产环境中使用 NFS，请确保您了解相关风险或咨询 KubeSphere 技术支持 support@kubesphere.cloud。
 
 {{</ notice >}}
 
@@ -71,7 +71,7 @@ weight: 3330
 从 [GitHub Release Page](https://github.com/kubesphere/kubekey/releases) 下载 KubeKey 或者直接运行以下命令。
 
 ```bash
-curl -sfL https://get-kk.kubesphere.io | VERSION=v2.2.1 sh -
+curl -sfL https://get-kk.kubesphere.io | VERSION=v2.2.2 sh -
 ```
 
 {{</ tab >}}
@@ -87,7 +87,7 @@ export KKZONE=cn
 运行以下命令来下载 KubeKey：
 
 ```bash
-curl -sfL https://get-kk.kubesphere.io | VERSION=v2.2.1 sh -
+curl -sfL https://get-kk.kubesphere.io | VERSION=v2.2.2 sh -
 ```
 
 {{< notice note >}}
@@ -102,7 +102,7 @@ curl -sfL https://get-kk.kubesphere.io | VERSION=v2.2.1 sh -
 
 {{< notice note >}}
 
-通过以上命令，可以下载 KubeKey 的最新版本 (v2.2.1)。您可以更改命令中的版本号来下载特定的版本。
+通过以上命令，可以下载 KubeKey 的最新版本 (v2.2.2)。您可以更改命令中的版本号来下载特定的版本。
 
 {{</ notice >}}
 

@@ -32,7 +32,7 @@ weight: 3120
 
 | 系统                                                         | 最低要求（每个节点）             |
 | ------------------------------------------------------------ | -------------------------------- |
-| **Ubuntu** *16.04，18.04，20.04*                                    | CPU：2 核，内存：4 G，硬盘：40 G |
+| **Ubuntu** *16.04，18.04，20.04， 22.04*                     | CPU：2 核，内存：4 G，硬盘：40 G |
 | **Debian** *Buster，Stretch*                                 | CPU：2 核，内存：4 G，硬盘：40 G |
 | **CentOS** *7*.x                                             | CPU：2 核，内存：4 G，硬盘：40 G |
 | **Red Hat Enterprise Linux** *7*                             | CPU：2 核，内存：4 G，硬盘：40 G |
@@ -101,7 +101,7 @@ KubeKey 可以一同安装 Kubernetes 和 KubeSphere。根据要安装的 Kubern
 从 [GitHub 发布页面](https://github.com/kubesphere/kubekey/releases)下载 KubeKey 或直接使用以下命令。
 
 ```bash
-curl -sfL https://get-kk.kubesphere.io | VERSION=v2.2.1 sh -
+curl -sfL https://get-kk.kubesphere.io | VERSION=v2.2.2 sh -
 ```
 
 {{</ tab >}}
@@ -117,7 +117,7 @@ export KKZONE=cn
 执行以下命令下载 KubeKey：
 
 ```bash
-curl -sfL https://get-kk.kubesphere.io | VERSION=v2.2.1 sh -
+curl -sfL https://get-kk.kubesphere.io | VERSION=v2.2.2 sh -
 ```
 
 {{< notice note >}}
@@ -132,7 +132,7 @@ curl -sfL https://get-kk.kubesphere.io | VERSION=v2.2.1 sh -
 
 {{< notice note >}}
 
-执行以上命令会下载最新版 KubeKey (v2.2.1)，您可以修改命令中的版本号下载指定版本。
+执行以上命令会下载最新版 KubeKey (v2.2.2)，您可以修改命令中的版本号下载指定版本。
 
 {{</ notice >}}
 
