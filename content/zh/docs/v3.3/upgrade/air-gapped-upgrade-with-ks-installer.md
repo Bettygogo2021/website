@@ -1,6 +1,6 @@
 ---
 title: "使用 ks-installer 离线升级"
-keywords: "离线环境, 升级, kubesphere, 3.3.0"
+keywords: "离线环境, 升级, kubesphere, 3.3.1"
 description: "使用 ks-installer 和离线包升级 KubeSphere。"
 linkTitle: "使用 ks-installer 离线升级"
 weight: 7500
@@ -12,10 +12,20 @@ weight: 7500
 ## 准备工作
 
 - 您需要有一个运行 KubeSphere v3.2.x 的集群。如果您的 KubeSphere 是 v3.1.0 或更早的版本，请先升级至 v3.2.x。
-- 请仔细阅读 [3.3.0 版本说明](../../../v3.3/release/release-v330/)。
+- 请仔细阅读 [3.3 版本说明](../../../v3.3/release/release-v330/)。
 - 提前备份所有重要的组件。
 - Docker 仓库。您需要有一个 Harbor 或其他 Docker 仓库。有关更多信息，请参见[准备一个私有镜像仓库](../../installing-on-linux/introduction/air-gapped-installation/#步骤-2准备一个私有镜像仓库)。
-- KubeSphere 3.3.0 支持的 Kubernetes 版本：v1.19.x、v1.20.x、v1.21.x、 v1.22.x 和 v1.23.x（实验性支持）。
+- KubeSphere 3.3 支持的 Kubernetes 版本：v1.19.x、v1.20.x、v1.21.x、 v1.22.x 和 v1.23.x（实验性支持）。
+
+## 重要提示
+
+   和之前的版本相比，KubeSphere 3.3.1 权限控制有很大的变化。删掉了平台级内置角色 `users-manager`(用户管理员)和 `workspace-manager`（企业空间管理员），增加了平台级内置角色 `platform-self-provisioner`。关于平台角色的具体描述，请参见[创建用户](../../quick-start/create-workspace-and-project/#创建用户)。因此，在您升级到 KubeSphere 3.3.1时，请注意以下几点：
+
+   - 内置角色升级：如果已有租户绑定了 `users-manager` 和 `workspace-manager`，他们的角色将会变更为 `platform-regular`。
+   - 自定义角色的升级：由于 KubeSphere 3.3.1 屏蔽掉了自定义角色的某些权限项，升级到 KubeSphere 3.3.1 后，自定义角色会被保留，但是其包含的已被屏蔽的权限会被删除。不同级别角色被屏蔽的权限如下：
+       - 平台级角色被屏蔽的权限：用户管理，角色管理，企业空间管理
+       - 企业空间级被屏蔽的权限：成员管理，角色管理，组管理
+       - 命名空间级被屏蔽的权限：成员管理，角色管理
 
 ## 步骤 1：准备安装镜像
 
@@ -24,7 +34,7 @@ weight: 7500
 1. 使用以下命令从能够访问互联网的机器上下载镜像清单文件 `images-list.txt`：
 
    ```bash
-   curl -L -O https://github.com/kubesphere/ks-installer/releases/download/v3.3.0/images-list.txt
+   curl -L -O https://github.com/kubesphere/ks-installer/releases/download/v3.3.1/images-list.txt
    ```
 
    {{< notice note >}}
@@ -36,7 +46,7 @@ weight: 7500
 2. 下载 `offline-installation-tool.sh`。
 
    ```bash
-   curl -L -O https://github.com/kubesphere/ks-installer/releases/download/v3.3.0/offline-installation-tool.sh
+   curl -L -O https://github.com/kubesphere/ks-installer/releases/download/v3.3.1/offline-installation-tool.sh
    ```
 
 3. 使 `.sh` 文件可执行。
@@ -96,10 +106,10 @@ weight: 7500
 1. 执行以下命令下载 ks-installer，并将其传输至您充当任务机的机器，用于安装。
 
    ```bash
-   curl -L -O https://github.com/kubesphere/ks-installer/releases/download/v3.3.0/kubesphere-installer.yaml
+   curl -L -O https://github.com/kubesphere/ks-installer/releases/download/v3.3.1/kubesphere-installer.yaml
    ```
    
-2. 验证您已在 `cluster-configuration.yaml` 中的 `spec.local_registry` 字段指定了私有镜像仓库地址。请注意，如果您的已有集群通过离线安装方式搭建，您应该已配置了此地址。如果您的集群采用在线安装方式搭建而需要进行离线升级，执行以下命令编辑您已有 KubeSphere v3.3.0 集群的 `cluster-configuration.yaml` 文件，并添加私有镜像仓库地址：
+2. 验证您已在 `cluster-configuration.yaml` 中的 `spec.local_registry` 字段指定了私有镜像仓库地址。请注意，如果您的已有集群通过离线安装方式搭建，您应该已配置了此地址。如果您的集群采用在线安装方式搭建而需要进行离线升级，执行以下命令编辑您已有 KubeSphere 3.3 集群的 `cluster-configuration.yaml` 文件，并添加私有镜像仓库地址：
 
    ```bash
    kubectl edit cc -n kubesphere-system
@@ -119,7 +129,7 @@ weight: 7500
 3. 编辑完成后保存 `cluster-configuration.yaml`。使用以下命令将 `ks-installer` 替换为您**自己仓库的地址**。
 
    ```bash
-   sed -i "s#^\s*image: kubesphere.*/ks-installer:.*#        image: dockerhub.kubekey.local/kubesphere/ks-installer:v3.3.0#" kubesphere-installer.yaml
+   sed -i "s#^\s*image: kubesphere.*/ks-installer:.*#        image: dockerhub.kubekey.local/kubesphere/ks-installer:v3.3.1#" kubesphere-installer.yaml
    ```
 
    {{< notice warning >}}

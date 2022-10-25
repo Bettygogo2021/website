@@ -1,8 +1,8 @@
 ---
-title: "Release Notes for 3.3.0"
+title: "Release Notes for 3.3"
 keywords: "Kubernetes, KubeSphere, Release Notes"
-description: "KubeSphere 3.3.0 Release Notes"
-linkTitle: "Release Notes - 3.3.0"
+description: "KubeSphere 3.3 Release Notes"
+linkTitle: "Release Notes - 3.3"
 weight: 18098
 ---
 
@@ -89,4 +89,4 @@ weight: 18098
 - Optimize display of the service topology on the **Service** page.
 
 
-For more information about issues and contributors of KubeSphere 3.3.0, see [GitHub](https://github.com/kubesphere/kubesphere/blob/master/CHANGELOG/CHANGELOG-3.3.md).
+For more information about issues and contributors of KubeSphere 3.3, see [GitHub](https://github.com/kubesphere/kubesphere/blob/master/CHANGELOG/CHANGELOG-3.3.md).

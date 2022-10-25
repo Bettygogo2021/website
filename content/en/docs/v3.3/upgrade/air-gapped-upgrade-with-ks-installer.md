@@ -1,6 +1,6 @@
 ---
 title: "Air-Gapped Upgrade with ks-installer"
-keywords: "Air-Gapped, upgrade, kubesphere, 3.3.0"
+keywords: "Air-Gapped, upgrade, kubesphere, 3.3"
 description: "Use ks-installer and offline package to upgrade KubeSphere."
 linkTitle: "Air-Gapped Upgrade with ks-installer"
 weight: 7500
@@ -12,10 +12,20 @@ ks-installer is recommended for users whose Kubernetes clusters were not set up 
 ## Prerequisites
 
 - You need to have a KubeSphere cluster running v3.2.x. If your KubeSphere version is v3.1.x or earlier, upgrade to v3.2.x first.
-- Read [Release Notes for 3.3.0](../../../v3.3/release/release-v330/) carefully.
+- Read [Release Notes for 3.3](../../../v3.3/release/release-v330/) carefully.
 - Back up any important component beforehand.
 - A Docker registry. You need to have a Harbor or other Docker registries. For more information, see [Prepare a Private Image Registry](../../installing-on-linux/introduction/air-gapped-installation/#step-2-prepare-a-private-image-registry).
-- Supported Kubernetes versions of KubeSphere 3.3.0: v1.19.x, v1.20.x, v1.21.x, v1.22.x, and v1.23.x (experimental support).
+- Supported Kubernetes versions of KubeSphere 3.3: v1.19.x, v1.20.x, v1.21.x, v1.22.x, and v1.23.x (experimental support).
+
+## Major Updates
+
+   Compared with previous versions, KubeSphere 3.3.1 has witnessed major updates of permission control. Platform-level built-in roles `users-manager` and `workspace-manager` are deleted and `platform-self-provisioner` is added. For more information about built-in roles, refer to [Create a user](../../quick-start/create-workspace-and-project/#Create a user). Therefore, before you upgrade KubeSphere to 3.3.1, please note the following:
+
+   - Change of built-in roles: If a tenant has been bound to `users-manager` or `workspace-manager`, its role will be changed to `platform-regular`.
+   - Change of user-defiend roles: As KubeSphere 3.3.1 has blocked some permissions of user-defiend roles. After you upgrade KubeSphere to 3.3.1, blocked permissions of user-defiend roles will be revoked, but user-defiend roles will be retained. Blocked permissions of users at different levels vary:
+       - Platform-level roles: user management, role management, and workspace management
+       - Workspace-level roles: user management, role management, and group management
+       - Namespace-level roles: user management and role management
 
 ## Step 1: Prepare Installation Images
 
@@ -24,7 +34,7 @@ As you install KubeSphere in an air-gapped environment, you need to prepare an i
 1. Download the image list file `images-list.txt` from a machine that has access to Internet through the following command:
 
    ```bash
-   curl -L -O https://github.com/kubesphere/ks-installer/releases/download/v3.3.0/images-list.txt
+   curl -L -O https://github.com/kubesphere/ks-installer/releases/download/v3.3.1/images-list.txt
    ```
 
    {{< notice note >}}
@@ -36,7 +46,7 @@ As you install KubeSphere in an air-gapped environment, you need to prepare an i
 2. Download `offline-installation-tool.sh`. 
 
    ```bash
-   curl -L -O https://github.com/kubesphere/ks-installer/releases/download/v3.3.0/offline-installation-tool.sh
+   curl -L -O https://github.com/kubesphere/ks-installer/releases/download/v3.3.1/offline-installation-tool.sh
    ```
 
 3. Make the `.sh` file executable.
@@ -96,7 +106,7 @@ Similar to installing KubeSphere on an existing Kubernetes cluster in an online 
 1. Execute the following command to download ks-installer and transfer it to your machine that serves as the taskbox for installation.
 
    ```bash
-   curl -L -O https://github.com/kubesphere/ks-installer/releases/download/v3.3.0/kubesphere-installer.yaml
+   curl -L -O https://github.com/kubesphere/ks-installer/releases/download/v3.3.1/kubesphere-installer.yaml
    ```
    
 2. Verify that you have specified your private image registry in `spec.local_registry` in `cluster-configuration.yaml`. Note that if your existing cluster was installed in an air-gapped environment, you may already have this field specified. Otherwise, run the following command to edit `cluster-configuration.yaml` of your existing KubeSphere v3.1.x cluster and add the private image registry:
