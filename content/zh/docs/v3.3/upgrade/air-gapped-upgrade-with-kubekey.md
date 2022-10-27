@@ -18,13 +18,15 @@ weight: 7400
 
 ## 重要提示
 
-   和之前的版本相比，KubeSphere 3.3.1 权限控制有很大的变化。删掉了平台级内置角色 `users-manager`(用户管理员)和 `workspace-manager`（企业空间管理员），增加了平台级内置角色 `platform-self-provisioner`。关于平台角色的具体描述，请参见[创建用户](../../quick-start/create-workspace-and-project/#创建用户)。因此，在您升级到 KubeSphere 3.3.1时，请注意以下几点：
+KubeSphere 3.3.1 对内置角色和自定义角色的授权项做了一些调整。在您升级到 KubeSphere 3.3.1时，请注意以下几点：
 
-   - 内置角色升级：如果已有租户绑定了 `users-manager` 和 `workspace-manager`，他们的角色将会变更为 `platform-regular`。
-   - 自定义角色的升级：由于 KubeSphere 3.3.1 屏蔽掉了自定义角色的某些权限项，升级到 KubeSphere 3.3.1 后，自定义角色会被保留，但是其包含的已被屏蔽的权限会被删除。不同级别角色被屏蔽的权限如下：
-       - 平台级角色被屏蔽的权限：用户管理，角色管理，企业空间管理
-       - 企业空间级被屏蔽的权限：成员管理，角色管理，组管理
-       - 命名空间级被屏蔽的权限：成员管理，角色管理
+   - 内置角色调整：移除了平台级内置角色 `users-manager`(用户管理员)和 `workspace-manager`（企业空间管理员），如果已有用户绑定了 `users-manager` 或 `workspace-manager`，他们的角色将会在升级之后变更为 `platform-regular`。增加了平台级内置角色 `platform-self-provisioner`。关于平台角色的具体描述，请参见[创建用户](../../quick-start/create-workspace-and-project/#创建用户)。
+
+   - 自定义角色授权项调整：
+       - 移除平台层级自定义角色授权项：用户管理，角色管理，企业空间管理。
+       - 移除企业空间层级自定义角色授权项：成员管理，角色管理，用户组管理。
+       - 移除命名空间层级自定义角色授权项：成员管理，角色管理。
+       - 升级到 KubeSphere 3.3.1 后，自定义角色会被保留，但是其包含的已被移除的授权项会被删除。
 
 ## 升级 KubeSphere 和 Kubernetes
 

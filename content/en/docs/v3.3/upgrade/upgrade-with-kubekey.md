@@ -18,13 +18,15 @@ This tutorial demonstrates how to upgrade your cluster using KubeKey.
 
 ## Major Updates
 
-   Compared with previous versions, KubeSphere 3.3.1 has witnessed major updates of permission control. Platform-level built-in roles `users-manager` and `workspace-manager` are deleted and `platform-self-provisioner` is added. For more information about built-in roles, refer to [Create a user](../../quick-start/create-workspace-and-project/#Create a user). Therefore, before you upgrade KubeSphere to 3.3.1, please note the following:
+In KubeSphere 3.3.1, some changes have made on built-in roles and permissions of custom roles. Therefore, before you upgrade KubeSphere to 3.3.1, please note the following:
 
-   - Change of built-in roles: If a tenant has been bound to `users-manager` or `workspace-manager`, its role will be changed to `platform-regular`.
-   - Change of user-defiend roles: As KubeSphere 3.3.1 has blocked some permissions of user-defiend roles. After you upgrade KubeSphere to 3.3.1, blocked permissions of user-defiend roles will be revoked, but user-defiend roles will be retained. Blocked permissions of users at different levels vary:
-       - Platform-level roles: user management, role management, and workspace management
-       - Workspace-level roles: user management, role management, and group management
-       - Namespace-level roles: user management and role management
+   - Change of built-in roles: Platform-level built-in roles `users-manager` and `workspace-manager` are removed. If an existing user has been bound to `users-manager` or `workspace-manager`, its role will be changed to `platform-regular` after the upgrade is completed. Role `platform-self-provisioner` is added. For more information about built-in roles, refer to [Create a user](../../quick-start/create-workspace-and-project).
+
+   - Some permission of custom roles are removed:
+       - Removed permissions of platform-level custom roles: user management, role management, and workspace management.
+       - Removed permissions of workspace-level custom roles: user management, role management, and user group management.
+       - Removed permissions of namespace-level custom roles: user management and role management.
+       - After you upgrade KubeSphere to 3.3.1, custom roles will be retained, but removed permissions of the custom roles will be revoked.
 
 ## Download KubeKey
 
